@@ -12,10 +12,10 @@ int main(int argc, string argv[])
 	}
 	string key = argv[1];
 	unsigned long keyCount = strlen(key);
-
+        //checking is key alphabetical
 	for (int k = 0; k < keyCount; k++)
 	{
-		if (!isalpha(key[k]))
+		if (isalpha!=(key[k]))
 		{
 			printf("Try again.");
 			return 1;
@@ -32,9 +32,11 @@ int main(int argc, string argv[])
 	{
 		if (isalpha(text[i]))
 		{
-			if (isupper(text[i]))
+			//encrypt large letters
+                        if (isupper(text[i]))
 				printf("%c", ((((text[i] - 'A') + ((toupper(key[n++%keyCount])) - 'A') % 26) % 26) + 'A'));
-
+                        
+                        //encrypt small letters
 			if (islower(text[i]))
 				printf("%c", ((((text[i] - 'a') + ((tolower(key[n++%keyCount])) - 'a') % 26) % 26) + 'a'));
 		}
